@@ -20,7 +20,7 @@ export default async () => {
       description:
         "A CryptoCurrency Price Comparing App. It allows user to compare prices of different cryptocurrencies in different platforms available in Australia and filter them.\n",
       image: "/images/cryptoprice.png",
-      link: "",
+      link: "https://compare-crypto-price.vercel.app/",
       github: "https://github.com/trafargarlaw/popcornhub",
       tech: ["nextjs"],
     },

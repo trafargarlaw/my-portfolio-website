@@ -1,5 +1,5 @@
 <template>
-  <section class="hero">
+  <section class="hero" id="hero">
     <div>
       <div class="hero__Ptag">
         <span> &lt;p&gt; </span>
@@ -16,21 +16,37 @@
       </div>
       <div class="hero__Ptag">
         &lt;p&gt;
-        <p>Web developer</p>
+        <p>Front-end Developer</p>
         &lt;/p&gt;
       </div>
     </div>
     <div class="hero__btn_container">
-      <app-hero-download-button />
+      <app-hero-download-button :open-modal="openModal" />
     </div>
   </section>
-  <app-hero-wire />
+  <app-wire-svg />
+  <modal v-if="isModalVisible" :closeModal="closeModal" />
 </template>
+
+<script setup lang="ts">
+const isModalVisible = ref(false);
+
+function closeModal() {
+  isModalVisible.value = false;
+}
+
+function openModal() {
+  isModalVisible.value = true;
+}
+</script>
+
+
 <style lang="scss" scoped>
 .hero {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap-reverse;
+  align-items: center;
 
   &__Ptag {
     display: flex;

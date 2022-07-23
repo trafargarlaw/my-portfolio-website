@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <button class="btn_downloadcv">
+    <button class="btn_downloadcv" @click="openModal">
       <span> &lt;Download CV /&gt; </span>
       <div class="btn_downloadcv__around">
         <div class="btn_downloadcv__around_1">
@@ -26,6 +26,15 @@
     </button>
   </div>
 </template>
+<script lang="ts" setup>
+interface Props {
+  openModal: (payload: MouseEvent) => void;
+}
+
+defineProps<Props>();
+</script>
+
+
 <style lang="scss" scoped>
 .container {
   overflow: hidden;

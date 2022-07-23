@@ -1,10 +1,8 @@
 <template>
   <nav class="navbar">
-    <a class="home" href="#">{{"//01. <Home />"}}</a>
+    <a class="portfolio" href="#portfolio">{{"//01. <Portfolio />"}}</a>
     <span class="logo text-head">HC</span>
-    <a class="press" href="#">{{"//03. <Press />"}}</a>
-    <a class="portfolio" href="#">{{"//02. <Portfolio />"}}</a>
-    <a class="contact" href="#">{{"//04. <Contact />"}}</a>
+    <a class="contact" href="#contact">{{"//02. <Contact />"}}</a>
   </nav>
 </template>
 <style lang="scss" scoped>
@@ -14,7 +12,7 @@
   display: grid;
   row-gap: 12px;
   grid-template-columns: 1fr 0.2fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
 
   & .logo {
     text-align: right;
