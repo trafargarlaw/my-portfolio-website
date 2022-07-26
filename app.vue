@@ -9,17 +9,33 @@
 
 <script lang="ts" setup>
 useHead({
+  htmlAttrs: {
+    lang: "en",
+  },
   title: "Houdaifa Chergaoui",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   charset: "utf-8",
-  meta: [{ name: "description", content: "My portfolio" }],
-  link: [{ rel: "icon", type: "image/ico", href: "/images/favicon.ico" }],
+  meta: [{ name: "description", content: "Houdaifa Chergaoui's Portfolio" }],
+  link: [
+    { rel: "icon", type: "image/ico", href: "/images/favicon.ico" },
+    {
+      rel: "preload",
+      href: "./assets/fonts/CodeSquared.woff2",
+      as: "font",
+      crossorigin: "",
+    },
+    {
+      rel: "preload",
+      href: "./assets/fonts/CallingCode-Regular.otf",
+      as: "font",
+      crossorigin: "",
+    },
+  ],
 });
 </script>
 
 
-<style lang="scss" scoped>
-@import "/assets/css/main.scss";
+<style lang="scss" >
 .app {
   color: white;
   background: $primary-bg;
