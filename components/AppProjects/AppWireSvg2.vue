@@ -91,12 +91,8 @@ svg {
 }
 #circle2 {
   opacity: 0;
-  animation: pulse 600ms ease-out forwards;
-
   &__delay {
     opacity: 0;
-    animation: pulse 600ms ease-out forwards;
-    animation-delay: 2.1s;
   }
 }
 

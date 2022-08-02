@@ -1,7 +1,12 @@
 <script setup>
-const { data: projects } = await useFetch("/api/portfolio");
+const { data } = await useAsyncData("projects", () => GqlProjects());
+
+const projects = data.value.projects.data.sort(
+  (a, b) => parseInt(a.id) - parseInt(b.id)
+);
+
 const selectedPage = ref(1);
-const lastProject = projects.value.length;
+const lastProject = projects.length;
 
 const decrementSelectedProject = () => {
   if (selectedPage.value > 1) {
@@ -15,15 +20,14 @@ const incrementSelectedProject = () => {
 };
 
 const selectedProject = computed(() => {
-  const project = projects.value[selectedPage.value - 1];
+  const project = projects[selectedPage.value - 1];
   return {
     id: project.id,
-    name: project.name,
-    description: project.description,
-    image: project.image,
-    link: project.link,
-    github: project.github,
-    tech: project.tech,
+    title: project.attributes.Title,
+    description: project.attributes.description,
+    image: "/images" + project.attributes.imgUrl,
+    link: project.attributes.link,
+    github: project.attributes.link,
   };
 });
 </script>
@@ -40,7 +44,7 @@ const selectedProject = computed(() => {
     <div class="portfolio-pages__description">
       <span class="text-body">&lt;p&gt;</span>
       <div class="portfolio-pages__description__text">
-        <h1 class="text-head">{{ selectedProject.name }}</h1>
+        <h1 class="text-head">{{ selectedProject.title }}</h1>
         <p class="text-body">
           {{ selectedProject.description }}
         </p>

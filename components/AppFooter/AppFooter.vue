@@ -24,12 +24,11 @@
 </template>
 <style lang="scss" scoped>
 .footer {
-  margin-top: 100px;
   padding: 26px;
 
   &__grid {
     display: grid;
-    padding: 4rem 0;
+    padding: 2rem 0;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 1rem;
@@ -39,8 +38,7 @@
 
 @media (min-width: 768px) {
   .footer {
-    margin-top: 200px;
-    padding: 32px;
+    padding: 0 32px;
 
     &__grid {
       grid-template-columns: 1fr 1fr;

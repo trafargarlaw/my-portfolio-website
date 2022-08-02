@@ -13,7 +13,6 @@
 defineProps({
   title: String,
   wrappingTag: String,
-  size: String,
 });
 </script>
 

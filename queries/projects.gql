@@ -1,0 +1,14 @@
+query projects {
+  projects {
+    data {
+      id
+      attributes {
+        Title
+        description
+        link
+        imgUrl
+        githubLink
+      }
+    }
+  }
+}
