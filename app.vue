@@ -3,6 +3,7 @@
     <app-navbar />
     <app-hero />
     <app-projects />
+
     <app-blog-posts />
     <app-footer />
   </div>
@@ -21,8 +22,7 @@ useHead({
 });
 </script>
 
-
-<style lang="scss" >
+<style lang="scss">
 .app {
   color: white;
   background: $primary-bg;

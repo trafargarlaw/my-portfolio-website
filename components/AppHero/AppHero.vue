@@ -1,6 +1,6 @@
 <template>
   <section class="hero" id="hero">
-    <div>
+    <div class="text-container">
       <div class="hero__Ptag">
         <span> &lt;p&gt; </span>
         <p>This is</p>
@@ -19,7 +19,11 @@
         <p>Front-end Developer</p>
         &lt;/p&gt;
       </div>
+      <div class="duck-container">
+        <hole-duckbill :number="2" />
+      </div>
     </div>
+
     <div class="hero__btn_container">
       <app-hero-download-button :open-modal="openModal" />
     </div>
@@ -40,8 +44,15 @@ function openModal() {
 }
 </script>
 
-
 <style lang="scss" scoped>
+.text-container {
+  position: relative;
+}
+.duck-container {
+  position: absolute;
+  bottom: 0;
+  right: 0%;
+}
 .hero {
   display: flex;
   justify-content: space-between;

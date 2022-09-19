@@ -84,7 +84,6 @@ const selectedProject = computed(() => {
   </div>
 </template>
 
-
 <style lang="scss" scoped>
 .portfolio-pages {
   display: flex;
