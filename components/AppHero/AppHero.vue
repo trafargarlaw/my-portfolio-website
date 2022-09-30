@@ -19,15 +19,15 @@
         <p>Front-end Developer</p>
         &lt;/p&gt;
       </div>
-      <div class="duck-container">
-        <hole-duckbill :number="2" />
-      </div>
     </div>
 
     <div class="hero__btn_container">
       <app-hero-download-button :open-modal="openModal" />
     </div>
   </section>
+  <div class="duck-container">
+    <hole-duckbill :number="2" />
+  </div>
   <app-wire-svg />
   <modal v-if="isModalVisible" :closeModal="closeModal" />
 </template>
@@ -49,9 +49,10 @@ function openModal() {
   position: relative;
 }
 .duck-container {
-  position: absolute;
-  bottom: 0;
-  right: 0%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 .hero {
   display: flex;

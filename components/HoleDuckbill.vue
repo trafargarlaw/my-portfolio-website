@@ -51,20 +51,6 @@ export default defineComponent({
         scrub: 1,
       },
     });
-    // set bottom to 0 when duckbill is hovered
-    this.$refs.duckbill.addEventListener("mouseenter", () => {
-      gsap.to(`.duckbill-${this.number}`, {
-        duration: 0.5,
-        bottom: -20,
-      });
-    });
-    // set bottom to -100 when duckbill is hovered
-    this.$refs.duckbill.addEventListener("mouseleave", () => {
-      gsap.to(`.duckbill-${this.number}`, {
-        duration: 0.5,
-        bottom: 80,
-      });
-    });
   },
 });
 </script>

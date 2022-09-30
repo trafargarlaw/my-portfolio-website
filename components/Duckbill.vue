@@ -72,7 +72,6 @@ export default {
     let lookingSide = this.lookingSide;
     window.addEventListener("mousemove", MoveEyes);
     // also on mousewheel
-    window.addEventListener("wheel", MoveEyes);
 
     if (this.lookingSide === "left") {
       this.$refs["duckbill-container"].style.transform = "rotateY(180deg)";
@@ -84,8 +83,13 @@ export default {
     // calculate rotation degree for left eye and right eye between 0 and 360 based on mouse position
     function MoveEyes(event) {
       eyes.forEach((eye) => {
+        console.log(eye.getBoundingClientRect().left);
         const x = eye.getBoundingClientRect().left + eye.clientWidth / 2;
-        const y = eye.getBoundingClientRect().top + eye.clientHeight / 2;
+        // take scroll in consideration
+        const y =
+          eye.getBoundingClientRect().top +
+          eye.clientHeight / 2 +
+          window.scrollY;
         const radian = Math.atan2(event.pageX - x, event.pageY - y);
         const rotation = radian * (180 / Math.PI) * -1 + 80;
         if (lookingSide === "right") {
