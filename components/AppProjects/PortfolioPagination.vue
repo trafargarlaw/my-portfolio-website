@@ -1,12 +1,7 @@
 <script setup>
-const { data } = await useAsyncData("projects", () => GqlProjects());
-
-const projects = data.value.projects.data.sort(
-  (a, b) => parseInt(a.id) - parseInt(b.id)
-);
-
+const { data: projects } = await useFetch("/api/portfolio");
 const selectedPage = ref(1);
-const lastProject = projects.length;
+const lastProject = projects.value.length;
 
 const decrementSelectedProject = () => {
   if (selectedPage.value > 1) {
@@ -20,14 +15,15 @@ const incrementSelectedProject = () => {
 };
 
 const selectedProject = computed(() => {
-  const project = projects[selectedPage.value - 1];
+  const project = projects.value[selectedPage.value - 1];
   return {
     id: project.id,
-    title: project.attributes.Title,
-    description: project.attributes.description,
-    image: "/images" + project.attributes.imgUrl,
-    link: project.attributes.link,
-    github: project.attributes.link,
+    name: project.name,
+    description: project.description,
+    image: project.image,
+    link: project.link,
+    github: project.github,
+    tech: project.tech,
   };
 });
 </script>
@@ -44,11 +40,12 @@ const selectedProject = computed(() => {
     <div class="portfolio-pages__description">
       <span class="text-body">&lt;p&gt;</span>
       <div class="portfolio-pages__description__text">
-        <h1 class="text-head">{{ selectedProject.title }}</h1>
+        <h1 class="text-head">{{ selectedProject.name }}</h1>
         <p class="text-body">
           {{ selectedProject.description }}
         </p>
         <a
+          v-if="selectedProject.github"
           class="github_link text-body"
           :href="selectedProject.github"
           target="_blank"
@@ -63,7 +60,9 @@ const selectedProject = computed(() => {
   <app-wire-svg-2 />
   <div class="portfolio-pagination">
     <button
-      class="portfolio-pagination__arrow"
+      :class="`portfolio-pagination__arrow ${
+        selectedPage !== 1 ? 'active' : ''
+      }`"
       @click="decrementSelectedProject"
     >
       <img src="/images/left.svg" alt="left-arrow" />
@@ -76,7 +75,9 @@ const selectedProject = computed(() => {
       ></span>
     </div>
     <button
-      class="portfolio-pagination__arrow active"
+      :class="`portfolio-pagination__arrow ${
+        selectedPage !== lastProject ? 'active' : ''
+      }`"
       @click="incrementSelectedProject"
     >
       <img src="/images/right.svg" alt="right-arrow" />
@@ -153,6 +154,7 @@ const selectedProject = computed(() => {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.1s ease-in-out;
 
     & img {
       height: 10px;

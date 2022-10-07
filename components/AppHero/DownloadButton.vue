@@ -1,7 +1,11 @@
 <template>
   <div class="container">
-    <button class="btn_downloadcv" @click="openModal">
-      <span> &lt;Download CV /&gt; </span>
+    <a
+      href="https://www.upwork.com/freelancers/~0132b914fbb3c956a4"
+      target="_blank"
+      class="btn_downloadcv"
+    >
+      <span> &lt;Work With Me/&gt; </span>
       <div class="btn_downloadcv__around">
         <div class="btn_downloadcv__around_1">
           <img
@@ -23,7 +27,7 @@
           />
         </div>
       </div>
-    </button>
+    </a>
   </div>
 </template>
 <script lang="ts" setup>
@@ -40,6 +44,10 @@ defineProps<Props>();
   padding: 10px;
 }
 .btn_downloadcv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
   font-family: "Calling Code";
   background: transparent;
   color: $light-green;

@@ -4,15 +4,15 @@
 
     <div class="footer__grid">
       <app-footer-contact-button
-        social="Instagram"
-        link="https://www.instagram.com/houdaifa_com/"
+        social="Upwork"
+        link="https://www.upwork.com/freelancers/~0132b914fbb3c956a4?viewMode=1"
       />
       <app-footer-contact-button
         social="Linkedin"
         link="https://www.linkedin.com/in/houdaifa-chergaoui-48a863244/"
       />
       <app-footer-contact-button
-        social="Gmail"
+        social="Email Me"
         link="mailto:chergaoui@houdaifa.com"
       />
       <app-footer-contact-button
