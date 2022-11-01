@@ -19,6 +19,14 @@ useHead({
   charset: "utf-8",
   meta: [{ name: "description", content: "Houdaifa Chergaoui's Portfolio" }],
   link: [{ rel: "icon", type: "image/ico", href: "/images/favicon.ico" }],
+  // add hotjar script hjid:3228213 hjsv:6
+  script: [
+    {
+      src: "https://static.hotjar.com/c/hotjar-3228213.js?sv=6",
+      async: true,
+      defer: true,
+    },
+  ],
 });
 </script>
 
