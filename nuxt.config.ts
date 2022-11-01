@@ -2,7 +2,16 @@ import { defineNuxtConfig } from "nuxt";
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  modules: ["nuxt-graphql-client"],
+  modules: [
+    "nuxt-graphql-client",
+    [
+      "@netsells/nuxt-hotjar",
+      {
+        id: "3228213",
+        sv: "6",
+      },
+    ],
+  ],
   runtimeConfig: {
     public: {
       GQL_HOST: "https://houdaifa-com-back.herokuapp.com/graphql", // overwritten by process.env.GQL_HOST
